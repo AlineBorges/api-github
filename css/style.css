@@ -1,0 +1,114 @@
+body {
+    font-family: 'Raleway';
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    display: flex;
+}
+
+.box-repository {
+    background-color: rgb(49, 119, 250);
+    color: rgb(255, 255, 255);
+    width: 50%;
+    padding: 2px 15px;
+    height: 50%;
+    margin: 0;
+}
+
+.repository-link {
+    background-color: rgb(49, 119, 250);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.repository-name.active:after,
+.repository-name:hover:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0; 
+    height: 0; 
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent; 
+    border-right: 5px solid rgb(255, 255, 255);
+    text-align: right;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.title-repository {
+    font-size: 80px;
+    font-weight: lighter;
+}
+
+.box-properties {
+    background-color: rgb(255, 255, 255);
+    color: rgb(180, 178, 178);
+    display: flex;
+}
+
+.repository-name {
+    text-align: right;
+    padding: 15px 0;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+}
+
+.title-properties {
+    padding: 2px 15px;
+    font-size: 25px;
+}
+
+.box-number-stars {
+    padding: 2px 15px;
+    font-size: 25px; 
+}
+
+.box-number-forks {
+    padding: 2px 15px;
+    font-size: 25px;
+}
+
+.commit-avatar img {
+    max-width: 50px;
+}
+
+.commit-element {
+    border-style: outset;
+    margin: 0 2px 15px 0;
+    border-color: rgb(112, 110, 110);
+    border-width: thin;
+}
+
+.commit-message {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(65, 64, 64);
+}
+
+.commit-autor {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(112, 110, 110);
+}
+
+.commit-date {
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(65, 64, 64);
+    text-align: right;
+    top: auto;
+}
