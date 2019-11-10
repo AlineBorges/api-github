@@ -1,4 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
+    background: linear-gradient(to right, rgb(49, 119, 250) 50%, rgb(255, 255, 255) 50%);
     font-family: 'Raleway';
     margin: 0;
 }
@@ -19,16 +24,16 @@ ul {
     width: 50%;
     padding: 2px 15px;
     height: 50%;
-    margin: 0;
 }
 
 .repository-link {
-    background-color: rgb(49, 119, 250);
+    background: none;
     color: rgb(255, 255, 255);
     border: none;
     font-weight: bold;
     cursor: pointer;
-    padding: 0 10px;
+    margin: 5px;
+    word-break: break-word;
 }
 
 .repository-name.active:after,
@@ -43,7 +48,7 @@ ul {
     border-right: 5px solid rgb(255, 255, 255);
     text-align: right;
     position: absolute;
-    right: -15px;
+    right: -16px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -51,12 +56,17 @@ ul {
 .title-repository {
     font-size: 80px;
     font-weight: lighter;
+    text-align: right;
+    margin: 20px;
+    padding: 0;
 }
 
 .box-properties {
-    background-color: rgb(255, 255, 255);
     color: rgb(180, 178, 178);
     display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 0;
 }
 
 .repository-name {
@@ -68,8 +78,10 @@ ul {
 }
 
 .title-properties {
-    padding: 2px 15px;
     font-size: 25px;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
 }
 
 .box-number-stars {
@@ -91,12 +103,14 @@ ul {
     margin: 0 2px 15px 0;
     border-color: rgb(112, 110, 110);
     border-width: thin;
+    padding: 20px;
 }
 
 .commit-message {
     font-size: 20px;
     font-weight: bold;
     color: rgb(65, 64, 64);
+    word-break: break-word;
 }
 
 .commit-autor {
@@ -111,4 +125,32 @@ ul {
     color: rgb(65, 64, 64);
     text-align: right;
     top: auto;
+}
+
+.box-commit {
+    padding: 15px;
+}
+
+.box-right {
+    background-color: #ffffff;
+    width: 50%;
+}
+
+.loadMore {
+    border: none;
+    padding: 10px;
+    border-radius: 2px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(180, 178, 178);
+    cursor: pointer;
+    width: 100%;
+}
+
+.loadMore:disabled {
+    display: none;
+}
+
+.botao {
+    padding: 15px;
 }

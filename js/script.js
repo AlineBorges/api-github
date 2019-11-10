@@ -1,10 +1,15 @@
 const repositoryList = document.querySelector('.repository-list'),
       commit = document.querySelector('.box-commit'),
-      body = document.querySelector('body');
+      body = document.querySelector('body'),
+      loadMore = document.querySelector('.loadMore');
 
 let fork = document.querySelector('.box-number-forks'),
     star = document.querySelector('.box-number-stars');
-    contribs = document.querySelector('.box-number-contribs');
+    contribs = document.querySelector('.box-number-contribs'),
+    start = 0,
+    end = 20,
+    currentRepository = '';
+
 
 body.addEventListener('click', (e) => {
     if (e.target.className === 'repository-link') {
@@ -13,6 +18,12 @@ body.addEventListener('click', (e) => {
         e.target.parentNode.classList.add('active');
         getRepositoryInfo(e.target.innerText);
     }
+
+    if (e.target.className === 'loadMore') {
+        start = start + end;
+        end += 20;
+        getCommitList(currentRepository);
+    }
 });
 
 const getRepository = () => {
@@ -20,6 +31,9 @@ const getRepository = () => {
     fetch(URL)
         .then(response => response.json())
         .then(response => {
+            response.sort((repo1, repo2) => {
+                return repo1.stargazers_count < repo2.stargazers_count ? 1 : -1;
+            });
             response.forEach( r => {
                 showRepository(r);
             });
@@ -27,10 +41,15 @@ const getRepository = () => {
 }
 
 const getRepositoryInfo = (repository) => {
+    commit.innerHTML = '';
     let URL = `https://api.github.com/repos/deezer/${repository}`;
+    currentRepository = repository
     fetch(URL)
         .then(response => response.json())
         .then(response => {
+            start = 0;
+            end = 20;
+            loadMore.removeAttribute('disabled');
             getCommitList(repository);
             fork.innerHTML = response.forks_count;
             star.innerHTML = response.stargazers_count;
@@ -38,15 +57,18 @@ const getRepositoryInfo = (repository) => {
 }
 
 const getCommitList = (repository) => {
-    commit.innerHTML = '';
     let URL = `https://api.github.com/repos/deezer/${repository}/commits`;
     fetch(URL)
         .then(response => response.json())
         .then(response => {
             contribs.innerHTML = response.length;
-            response.forEach(c => {
-                showCommit(c);
-            });
+            if (end > response.length) {
+                loadMore.setAttribute('disabled', 'disabled');
+            }
+            for (let i = start; i < end; i++) {
+                if (response[i])
+                    showCommit(response[i]);
+            }
         });
 }
 
@@ -62,12 +84,12 @@ const showRepository = r => {
 
 const showCommit = c => {
     const imageSrc = c.author && c.author.avatar_url ? c.author.avatar_url : '/img/github-image.png';
-
+    let newDate = new Date(c.commit.author.date);
     const commt = `
     <li class="commit-element">
         <div class="commit-avatar"><img src="${imageSrc}" /></div>
         <div class="commit-message">${c.commit.message}</div>
-        <div class="commit-date">${c.commit.author.date}</div>
+        <div class="commit-date">${newDate.toLocaleDateString('pt-BR')}</div>
         <div class="commit-autor">${c.commit.author.name}</div>
     </li>
     `;
