@@ -38,9 +38,9 @@ Listagem de todos os projetos de um repositório público usando a API do GitHub
 	<img width="50" height="50" src="https://freeiconshop.com/wp-content/uploads/edd/js-flat-128x128.png">
 </p>
 
-## Author
+## Authors
 
-**Aline Borges**
+[Aline Borges](https://github.com/AlineBorges)
 
 
 ## Demo
