@@ -1,4 +1,8 @@
-# Projeto - GitHub API
+<p align="center">
+  <img width="200" height="200" src="https://github.com/aline-borges/github-api/blob/master/img/ghub-logo.png?raw=true">
+</p>
+
+# GitHub API
 
 Listagem de todos os projetos de um repositório público usando a API do GitHub.
 
@@ -28,10 +32,11 @@ Listagem de todos os projetos de um repositório público usando a API do GitHub
 
 ## Technologies
 
-- **HTML**  
-- **CSS**
-- **JAVASCRIPT**
-
+ <p align="left">
+  	<img width="50" height="50" src="https://freeiconshop.com/wp-content/uploads/edd/html-flat.png">
+	<img width="50" height="50" src="https://freeiconshop.com/wp-content/uploads/edd/css-flat.png">
+	<img width="50" height="50" src="https://freeiconshop.com/wp-content/uploads/edd/js-flat-128x128.png">
+</p>
 
 ## Author
 
@@ -39,4 +44,4 @@ Listagem de todos os projetos de um repositório público usando a API do GitHub
 
 
 ## Demo
-https://alineborges-githubapi.netlify.com/
+<a href="https://alineborges-githubapi.netlify.com/">Github API Project</a>
